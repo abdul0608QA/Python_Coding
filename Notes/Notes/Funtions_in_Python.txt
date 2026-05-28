@@ -1,0 +1,135 @@
+********************************** PYTHON FUNCTIONS **********************************************
+
+** FUNCTION:
+    -> Function is a block of code , that is used to perform a specific task. Insted of writing the same code
+       multiple times, you can define it once as a function and  then call it whenever needed.
+
+** Key points:
+    -> Functions are defined by using def keyword, and followed by the function name, parentheses(), and a colon (:).
+    -> It can takes inputs as parameters / arguments
+                * Prarametrs are names listed in the function defination.
+                * Arguments are the actual values passed to the function when it is called.
+    -> It can return outputs, for that return statement is used.
+       return statement is used to exit the function and send a value back to the caller. If a function
+       does not have a return statement, it returns None by default.
+
+** Syntax:
+        def function_name(parameters):
+            """
+            Docstrings: explaining whats the function does, its parameters, and what it returns
+            """
+            #function_body
+            return
+        function_name()  # calling the function
+
+    ** Calling the function:
+        #After creating the function we can call it by using function name followed by parentheses containing
+        #parameters of that perticular function.
+        
+        Ex:1
+            def greetings():
+                print("Hi Abdul! How are you?")
+            
+            greetings()                 #result: Hi Abdul! How are you?
+            
+            
+        Ex:2
+            def finding_evenodd(x):
+                if x%2 ==0:
+                    print("{} is Even Number".format(x))
+                else:
+                    print("{} is Odd Number".format(x))
+            finding_evenodd(348)            #result: 348 is Even Number
+            
+            
+            def check_evenodd(x):
+                if x%2 ==0:
+                    print(f"{x} is Even Number")
+                else:
+                    print(f"{x} is Odd Number")
+            check_evenodd(57)                       #result: 57 is Odd Number
+            check_evenodd(846)                      #result: 846 is Even Number
+
+
+#Q) Why we need Functions?
+    We need functions in any code language, because they organized, reusable, and eaiser to maintanence.
+    1. Reusability:
+        Insted of writing a code multiple times, we can put code inside a function, and then we can call
+        that function whenever needed.
+    2. Code Organization(Modularity):
+        Functions break large programs into smaller, manageable blocks.
+        This makes programer eaiser to read and debug.
+    * They save the time, easy to maintain, reduce erros and improve readability
+
+        
+***** Function Types******
+    1. Inbuilt Functions
+    2. User Define Functions
+    3. Lambda Functions
+    
+    1. In-Built Functions:
+        Once we installed python it have some own built-in functions in their librarires, those functions are called in-built function.
+        Pytho standard library includes number of built-in functions.
+        some are like...print(),len(),int(),sum(),type(),dir(),min(),max(),pow()..etc.
+        we dont need to create them ,we just need to call them.
+        
+    2. User defined Functions:
+        These functions are created by the programmer to perform specific tasks within their code.
+        These functions are defined by using the def keyword, followed by function name,parameter(s), and the code of block
+        that performed for the desired operation.
+        
+    3. Lambda Functions:
+        These are small and single-expression functions that can be designed in a single line of code. These are often used,
+        for quick and simple operation, they dont required full function defination. These are defined by lambda keyword.
+        
+    4. Recursive Functions:
+        These functions are called themselves to perform a task repetedly untill certain condition is met.
+        Recursive functions are useful in situations where problem can be broken down into smaller sub-problems.
+        Ex:
+            def factorial(n):
+                if n==1:
+                    return 1
+                else:
+                    return n*factorial(n-1) 
+            print(factorial(8))         #result : 40320
+            print(factorial(5))         #result : 120
+            
+    
+    5. Generator Functions:
+        These are special type of functions that returns an iterator. They use yield keyword to produce sequence of values
+        one at a time, rather that returning all values at a once, making them memory efficient for large sequences.
+    Ex:
+        def count_up_to(n):
+            i = 0
+            while i <= n:
+                yield i
+                i += 1
+    
+    6. Higher-Order Functions:
+       These functions are that take other functions as arguments and/or return functions as outputs.
+       Higher order function can be use to create more complex operations by combaining simpler functions.
+       
+
+
+
+Examples:
+    
+1.Q) Convert Nested-list into a Single list by using Functions?
+    input = [[1, 2, [3, 4]], [5, 6], [7, [8, 9]]]
+    l = []
+
+#Code:
+input = [[1, 2, [3, 4]], [5, 6], [7, [8, 9]]]
+l = []
+
+def fun_nested_list(l1):
+    for i in l1:
+        if isinstance(i, list):
+            fun_nested_list(i)
+        else:
+            l.append(i)
+    return l
+print(fun_nested_list(input))       #result: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+   
+   
+   
